@@ -1,0 +1,8 @@
+/* Navbar style for links */
+.link-btn.active {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold; 
+   border-radius: 10px;
+  }
+  
