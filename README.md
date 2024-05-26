@@ -1,84 +1,89 @@
 
 # Online Voting System
 
-This is a web-based voting system built using React, React Router, and Axios. The application allows users to log in, sign up, and participate in voting.
+This is an online voting system developed using the MERN (MongoDB, Express.js, React, Node.js) stack. The system provides a secure, efficient, and user-friendly platform for conducting elections.
 
-## Table of Contents
-
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
-## About the Project
-
-The Online Voting System is designed to allow users to cast their votes online securely and efficiently. The project aims to replace traditional paper ballots with a digital solution, ensuring accuracy and accessibility.
 ## Features
 
-- Secure user authentication
-- Easy-to-use voting interface
-- Real-time vote counting
-- Admin panel for managing elections
-- Responsive design for mobile and desktop use
+- User registration and login
+- Candidate registration(Admin Only)
+- Voting functionality
+- View election results
+- User profile management
+- Change password feature
 
 
-## Getting Started
+## Technologies Used
 
-To get a local copy up and running, follow these steps.
+- **Frontend**:
+  - React: JavaScript library for building user interfaces
+  - HTML, CSS: Markup and styling
+  - Bootstrap: Frontend framework for responsive design
+- **Backend**:
+  - Node.js: JavaScript runtime environment
+  - Express.js: Web application framework for Node.js
+  - MongoDB: NoSQL database for storing user and candidate information
 
-### Prerequisites
+## Installation
 
-Ensure you have the following installed on your machine:
+1. Clone the repository:
 
-- Node.js
-- npm (Node Package Manager)
-- Git
-### Installation
+```bash
+  git clone https://github.com/vijay628/online-voting-system.git
 
 ```
-1. Clone the repository
-
-   git clone https://github.com/your_username/online-voting-system.git
-
-2. Navigate to the project directory
-   
-   cd online-voting-system
-
-3. Install the dependencies
-   
-   npm install
-
-4. Start the development server
-   
-   npm start
+2. Navigate to the project directory:
+```bash
+  cd online-voting-system
 ```
+
+3. Install dependencies for both frontend and backend:
+
+```bash
+cd online-voting-system-client && npm install
+cd ..
+cd online-voting-system-server && npm install
+```
+
+4. Set up environment variables:
+
+- Create a .env file in the server directory.
+- Define the following variables:
+  - MONGODB_URI: URI of your MongoDB database
+  - JWT_SECRET: Secret key for JWT authentication
+
+5. Run the backend server:
+```bash
+cd online-voting-system-server && node server.js
+```
+
+6. Run the frontend development server:
+```bash
+cd online-voting-system-client && npm start
+```
+7. Access the application in your browser at http://localhost:3000.
+
 ## Usage
 
-To use the online voting system, follow these steps:
-```
-1. Open your web browser and navigate to http://localhost:3000.
-2. Register as a new user or log in with your credentials.
-3. Browse the available elections and cast your vote.
-4. Admin users can access the candidate registration, updation, and deletion and manage elections.
+- Register as a new user or login with existing credentials.
+- Navigate to the voting section to cast your vote.
+- View election results to see the outcome.
+- Update your profile information or change your password as needed.
 
-```
+
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+Contributions are welcome!
 
-```sh
-1. Fork the Project
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
-```
+Please follow these steps:
 
-## Acknowledgements
+    1. Fork the repository
+    2. Create a new branch (git checkout -b feature)
+    3. Make your changes
+    4. Commit your changes (git commit -am 'Add new feature')
+    5. Push to the branch (git push origin feature)
+    6. Create a new Pull Request
 
- - [React.js Documentation](https://react.dev/reference/react/hooks)
- - [Node.js Documentation](https://nodejs.org/docs/latest/api/)
- - [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
