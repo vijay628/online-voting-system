@@ -9,7 +9,7 @@ function PieChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/candidate/vote/count');
+        const response = await axios.get('http://localhost:8080/candidate/vote/count');
         setChartData(response.data);
       } catch (error) {
         console.error('Error fetching voting count:', error);

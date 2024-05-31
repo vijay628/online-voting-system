@@ -26,7 +26,7 @@ const CandidateDelete = () => {
   useEffect(() => {
     const fetchCandidateList = async () => {
       try {
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/candidate/candidateList');
+        const response = await axios.get('http://localhost:8080/candidate/candidateList');
         setCandidateList(response.data);
       } catch (error) {
         console.log(error);
@@ -40,12 +40,14 @@ const CandidateDelete = () => {
     setLoading(true);
     const token = sessionStorage.getItem('token');
     try {
-      const response = await axios.delete(`https://voting-app-server-8cny.onrender.com/candidate/${candidateId}`, {
+      const response = await axios.delete(`http://localhost:8080/candidate/${candidateId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
-      console.log(response.data);
+     if(response.status===200){
+      alert(`Candidate Deleted - ${response.data.name}`);
+     }
       // Reset form fields after successful update
       setFormData({
         name: '',

@@ -13,7 +13,7 @@ function VotingRule({ description }) {
 function Rule() {
   return (
     <div className='container card mt-3'>
-      <h1>Voting Rules in India</h1>
+      <h1>Voting Rules</h1>
       <VotingRule
         description="Every citizen of India who is 18 years of age or older is entitled to vote in elections, subject to certain exceptions and disqualifications specified by law."
       />

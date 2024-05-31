@@ -23,7 +23,7 @@ function Navbar({ user }) {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div className="container-fluid">
           {/* <p>{windowSize}</p> */}
-          <NavLink className="nav-link" to="/" style={{ color: 'red' }}>Online Voting System</NavLink>
+          <NavLink className="nav-link" to="/" style={{ color: 'white',fontWeight:'bold', margin:'1rem' }}>Online Voting System</NavLink>
           {(user && windowSize <=700) ? (
             <>
               <div className="nav-item">

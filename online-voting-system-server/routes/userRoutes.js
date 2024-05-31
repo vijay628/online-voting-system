@@ -2,6 +2,62 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel');
 const { jwtAuthMiddleware, generateToken } = require('../jwt');
+const { generateOtp, sendOtpEmail } = require('./otpService');
+const axios = require('axios');
+
+  // sent otp
+  router.post('/send-otp', async (req, res) => {
+    const {id, email } = req.body;
+    const otp = generateOtp();// Generate 6-digit OTP
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // OTP expires in 5 minutes
+  
+    try {
+      // Update user with the new OTP
+      const user = await User.findByIdAndUpdate(
+         id ,
+        { otp: { code: otp, expiresAt } },{
+          new:true
+      }
+      );
+  
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+  
+      await sendOtpEmail(email, otp);
+  
+      res.send('OTP sent successfully');
+    } catch (error) {
+      console.error('Error sending OTP:', error);
+      res.status(500).send('Error sending OTP');
+    }
+  });
+  
+  // verify otp
+  router.post('/verify-otp', async (req, res) => {
+    const { id, otp } = req.body;
+  
+    try {
+      // Find user by email
+      const user = await User.findById(id);
+  
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+  
+      // Check if OTP is valid and not expired
+      if (user.otp.code === otp && user.otp.expiresAt > new Date()) {
+        user.isVerified = true;
+        await user.save();
+        res.send('OTP verified successfully');
+      } else {
+        res.status(400).send('Invalid or expired OTP');
+      }
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+      res.status(500).send('Error verifying OTP');
+    }
+  });
 
 //signup ROUTE
 router.post('/signup', async (req, res) => {

@@ -34,7 +34,7 @@ const CandidateUpdate = () => {
   useEffect(() => {
     const fetchCandidateList = async () => {
       try {
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/candidate/candidateList');
+        const response = await axios.get('http://localhost:8080/candidate/candidateList');
         setCandidateList(response.data);
       } catch (error) {
         console.log(error);
@@ -48,12 +48,12 @@ const CandidateUpdate = () => {
     setLoading(true);
     const token = sessionStorage.getItem('token');
     try {
-      const response = await axios.put(`https://voting-app-server-8cny.onrender.com/candidate/${candidateId}`, formData, {
+      const response = await axios.put(`http://localhost:8080/candidate/${candidateId}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
-      console.log(response.data);
+      alert("Details Updated Successfully", response.data.name);
       // Reset form fields after successful update
       setFormData({
         name: '',

@@ -48,7 +48,7 @@ const ChangePassword = () => {
         throw new Error('User not authenticated');
       }
 
-      const response = await axios.put('https://voting-app-server-8cny.onrender.com/user/profile/password', formData, {
+      const response = await axios.put('http://localhost:8080/user/profile/password', formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

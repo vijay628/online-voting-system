@@ -14,7 +14,7 @@ const VerifiedMemberList = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/candidate/candidateList');
+        const response = await axios.get('http://localhost:8080/candidate/candidateList');
         setCandidates(response.data);
       } catch (error) {
         console.error('Error fetching candidate list:', error);
@@ -48,7 +48,15 @@ const VerifiedMemberList = () => {
     return window.btoa(binary);
   };
 
-  if (loading) return <p>Loading candidate list...</p>;
+  if (loading) {
+    return (
+      <div className='d-flex justify-content-center mt-3'>
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
   const indexOfLastMember = currentPage * membersPerPage;

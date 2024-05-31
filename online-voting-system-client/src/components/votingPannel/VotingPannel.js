@@ -10,7 +10,7 @@ const [error, setError] = useState('');
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/candidate/candidateList');
+        const response = await axios.get('http://localhost:8080/candidate/candidateList');
         setLoading(true);
         setCandidates(response.data);
       } catch (error) {
@@ -36,7 +36,7 @@ const [error, setError] = useState('');
   const handleVote = async (candidateID) => {
     setLoading(true);
     try {
-      await axios.post(`https://voting-app-server-8cny.onrender.com/candidate/vote/${candidateID}`, null, {
+      await axios.post(`http://localhost:8080/candidate/vote/${candidateID}`, null, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
         }

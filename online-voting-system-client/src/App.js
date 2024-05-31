@@ -13,6 +13,7 @@ import UserHome from './components/users/UserHome';
 import ChangePassword from './components/users/ChangePassword';
 import axios from 'axios';
 
+
 function App() {
   const [hideNavbar, setHideNavbar] = useState(false);
   const [user, setUser] = useState(false);
@@ -40,7 +41,7 @@ function App() {
       const checkLogin = async()=>{
         try {
         const token = sessionStorage.getItem('token');
-        const response = await axios.get('https://voting-app-server-8cny.onrender.com/user/profile',{
+        const response = await axios.get('http://localhost:8080/user/profile',{
           headers:{
             Authorization: `Bearer ${token}`
           }

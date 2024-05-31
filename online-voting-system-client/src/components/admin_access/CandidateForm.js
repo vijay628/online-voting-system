@@ -45,14 +45,15 @@ const CandidateForm = () => {
             const adminToken = sessionStorage.getItem('token'); // Get token from sessionStorage
 
             // Send POST request to the server with candidate data and admin token
-            const response = await axios.post('https://voting-app-server-8cny.onrender.com/candidate', formData, {
+            const response = await axios.post('http://localhost:8080/candidate', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${adminToken}` // Include admin token in Authorization header
                 }
             });
-
-            console.log('Candidate created:', response.data);
+            if(response.status===200){
+                alert('Candidate created:', response.data.name);
+            }
 
             // Reset form fields
             setFormData({
