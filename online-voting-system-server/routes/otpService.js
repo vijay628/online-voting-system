@@ -2,6 +2,7 @@ const { MailtrapClient } = require("mailtrap");
 const crypto = require('crypto');
 require('dotenv').config();
 
+//create your account on mailtrap and setupt demo domain to get the otp on your mail.
 const TOKEN = process.env.MAILTRAP_TOKEN;
 const ENDPOINT = "https://send.api.mailtrap.io/";
 
