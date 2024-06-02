@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // MongoDB connection URL local anfd online it will connect to local if online not available
-const mongoURL = process.env.MONGODB_URL_LOCAL || process.env.MONGODB_URL_ONLINE_SERVER ;
+const mongoURL = process.env.MONGODB_URL_LOCAL || MONGODB_URI ;
 
 const MONGODB_USER = encodeURIComponent(process.env.MONGODB_USER);
 const MONGODB_PASSWORD = encodeURIComponent(process.env.MONGODB_PASSWORD);
