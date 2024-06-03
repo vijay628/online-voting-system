@@ -25,9 +25,9 @@ function App() {
         if (location === '/profile') { 
           setHideNavbar(true); 
         } else {
-          setHideNavbar(false); // Reset hideNavbar state if not in '/profile'
+          setHideNavbar(false);
         }
-        hideNavbarIfProfile(); // Call the function to execute it
+        hideNavbarIfProfile();
       } catch (error) {
         console.log(error);
       }
